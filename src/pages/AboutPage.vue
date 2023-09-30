@@ -209,7 +209,7 @@ th, td {
 /* Styles for even larger screens, i.e., large desktops */
 @media (min-width: 1200px) {
   .container {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
   }
 }
