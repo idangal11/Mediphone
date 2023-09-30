@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light transparent-bg">
       <div class="container">
         <router-link :to="{ name: 'main' }" class="navbar-brand">
-          <span class="logo-text">Mediphone</span>
+          <span class="logo-text">Mediphone !!!</span>
         </router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
