@@ -158,11 +158,70 @@ export default {
 </script>
 
 <style scoped>
+/* ... Your existing styles ... */
+
+/* Base styles, aimed for mobile by default */
+.container {
+  width: 100%;
+  padding: 0 5%; /* some padding to prevent edge stickiness on mobile */
+  color: black;
+}
+
+th, td {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.control-button {
+  padding: 4px 8px;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+}
+
+.counter-display {
+  font-size: 12px;
+}
+
+.tables-section {
+  flex-direction: column;
+}
+
+/* Styles for larger screens, i.e., tablets and desktops */
+@media (min-width: 768px) {
+  th, td {
+    padding: 15px 20px;
+    font-size: 18px;
+  }
+
+  .control-button {
+    padding: 6px 12px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .counter-display {
+    font-size: 18px;
+  }
+}
+
+/* Styles for even larger screens, i.e., large desktops */
+@media (min-width: 1200px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+</style>
+
+<!-- <style scoped>
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150vh;
+  height: 90vh;
   color: black;
 }
 
@@ -260,5 +319,6 @@ th:active {
   font-size: 18px;
   margin: 0 10px;
 }
-</style>
+
+</style> -->
 
