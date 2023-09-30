@@ -16,8 +16,8 @@
                 :style="{ backgroundColor: item.color }"
                 @click="toggleColor(item)"
               >
-                {{ item.index }}<br>
-                {{ headerText(item.color) }}
+                {{ item.index }}      
+                [ {{ headerText(item.color) }} ]
               </th>
             </tr>
           </thead>
@@ -101,16 +101,18 @@ export default {
     };
   },
   methods: {
-    toggleColor(item) {
-  if (item.color === 'transparent' || item.color === 'red') {
-    item.color = 'green';
-  } else if (item.color === 'green') {
-    item.color = 'yellow';
-  } else if (item.color === 'yellow') {
-    item.color = 'red';
-  } else {
-    item.color = 'transparent';
-  }
+      toggleColor(item) {
+    if (item.color === 'transparent') {
+      item.color = 'green';
+    } else if (item.color === 'green') {
+      item.color = 'yellow';
+    } else if (item.color === 'yellow') {
+      item.color = 'red';
+    } else if (item.color === 'red') {
+      item.color = 'transparent';
+    } else {
+      item.color = 'transparent';  // This will be hit after red
+    }
   },  
 
   incrementCount(item) {
@@ -137,16 +139,18 @@ export default {
     },
 
   computed: {
-  headerText() {
-    return (color) => {
-      switch(color) {
-        case 'green': return 'מנוי';
-        case 'yellow': return 'פנוי';
-        case 'red': return 'ריק';
-        default: return '';
-      }
-    };
-  }
+    headerText() {
+  return (color) => {
+    switch(color) {
+      case 'green': return 'מנוי';
+      case 'yellow': return 'פנוי';
+      case 'red': return 'ריק';
+      case 'transparent': return 'אין'; // Added a label for 'none' color. Replace 'אין' with appropriate translation or desired text.
+      default: return '';
+    }
+  };
+}
+
 }
 
 };
@@ -158,70 +162,72 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 190vh;
+  height: 120vh;
   color: black;
 }
 
 table {
   width: 100%;
-  
   border-collapse: collapse;
 }
 
 th, td {
   border: 1px solid #000;
-  padding: 15px 20px;  /* Increased padding for better touch target */
+  padding: 15px 20px;
   text-align: center;
   cursor: pointer;
-  font-size: 18px;  /* Slightly larger text for readability */
-  transition: background-color 0.3s, transform 0.2s;  /* Added transform transition */
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 th:active {
-  transform: scale(0.95);  /* Slight scaling when active for feedback */
+  transform: scale(0.95);
 }
 
-@media (max-width: 600px) {  /* Mobile-specific adjustments */
+@media (max-width: 600px) {
   th, td {
     padding: 10px 15px;
     font-size: 16px;
   }
 }
+
 .counter-button {
   padding: 10px 20px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   background-color: #f9f9f9;
-  border: 2px solid black;  /* Slightly bold blue border */
-  border-radius: 8px;  /* More rounded corners */
+  border: 2px solid black;
+  border-radius: 8px;
   width: 100%;
   display: block;
   text-align: center;
-  color: black;  /* Same blue color for text */
-  transition: background-color 0.3s, color 0.3s;  /* Color transitions */
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .counter-button:hover {
-  background-color: black;  /* On hover, invert colors */
+  background-color: black;
   color: #f9f9f9;
 }
 
 .counter-button:active {
-  background-color: black;  /* Slightly darker blue for an active press */
+  background-color: black;
   color: #f9f9f9;
-  transform: scale(0.97);  /* Slight scaling for feedback on press */
-  transition: transform 0.1s;  /* Quicker transition for press feedback */
+  transform: scale(0.97);
+  transition: transform 0.1s;
 }
+
 .tables-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* This change makes tables align to the left */
+  align-items: flex-start;
 }
 
 .table-wrapper {
-  margin-bottom: 20px;  /* Adds space between tables */
+  margin-bottom: 20px;
 }
+
 .control-button {
   padding: 6px 12px;
   font-size: 16px;
@@ -229,17 +235,30 @@ th:active {
   cursor: pointer;
   border: 1px solid #000;
   background-color: #f9f9f9;
-  transition: background-color 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow for depth */
+  border-radius: 50%; /* making them circular */
+  transition: background-color 0.3s, transform 0.2s; /* added transform transition */
+  width: 40px;    /* Fixed width */
+  height: 40px;   /* Fixed height */
+  
+  
+  
 }
 
 .control-button:hover {
-  background-color: #ddd;
+  background-color: #57bdec;
+  transform: translateY(-2px); /* subtle lift effect */
+}
+
+.control-button:active {
+  background-color: #ccc;
+  transform: translateY(1px); /* subtle press effect */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* reduced shadow on press */
 }
 
 .counter-display {
   font-size: 18px;
   margin: 0 10px;
 }
-
-
 </style>
+

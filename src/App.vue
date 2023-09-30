@@ -94,7 +94,7 @@ export default {
 
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: #fff !important;
+  color: #050000 !important;
   font-weight: bold;
 }
 
@@ -110,7 +110,7 @@ export default {
 
 /* Personal dropdown menu */
 .personal-dropdown-button {
-  color: #fff;
+  color: #d90b0b;
   background-color: #222;
   border-color: #00bfff;
 }
@@ -136,7 +136,7 @@ export default {
 /* Recipe Modal */
 .modal-content {
   background-color: #222;
-  color: #fff;
+  color: #fc0909;
 }
 
 /* Rest of your existing styles... */
