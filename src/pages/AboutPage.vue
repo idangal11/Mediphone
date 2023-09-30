@@ -162,7 +162,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120vh;
+  height: 150vh;
   color: black;
 }
 
